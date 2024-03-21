@@ -4,6 +4,8 @@
   }
 </style>
 
+<!-- More info -->
+
 <div class="modal fade" id="Modal-MoreInfo-{{ item.id }}"
      tabindex="-1"
      aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -20,6 +22,40 @@
       </div>
       <div class="modal-body">
         {{ item.description }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Purchase confirmation -->
+
+<div class="modal fade" id="Modal-PurchaseConfirm-{{ item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">
+          {{ item.name }}
+        </h5>
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          {{ purchase_form.hidden_tag() }}
+          <h4 class="text-center">{{ item.name }} ${{ item.price }}</h4>
+          <h6 class="text-center">By clicking 'Purchase' it will remove money from your account.</h6>
+          {{ purchase_form.submit(class="btn btn-outline-success btn-block") }}
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"

@@ -27,3 +27,11 @@ class RegisterForm(FlaskForm):
     password = PasswordField(label='Password', validators=[Length(min=10), DataRequired()])
     confirm_password = PasswordField(label='Confirm Password', validators=[EqualTo('password'), DataRequired()])
     submit = SubmitField(label='Create Account')
+
+
+class PurchaseItemForm(FlaskForm):
+    submit = SubmitField(label='Purchase Item')
+
+
+class SellItemForm(FlaskForm):
+    submit = SubmitField(label='Sell Item')
